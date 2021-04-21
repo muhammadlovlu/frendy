@@ -1,0 +1,13 @@
+.floating{
+    float:left;
+ 
+}
+.profile{
+    width:50%; 
+}
+.email{
+    size:8px;
+}
+.shadowBox {
+    box-shadow: 5px 5px 15px #525252 ;
+}
