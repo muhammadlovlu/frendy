@@ -4,24 +4,25 @@ import './App.css';
 import Header from './Components/Header/Header';
 import User from './Components/User/User';
 
+
 function App() {
   const [users, setUsers] = useState([]);
+  const [updateFriend, setupdateFriend] = useState([]);
+  const addFriend = (addUser) => {
+    const newFriend = [...updateFriend, addUser];
+    setupdateFriend(newFriend)
+  }
   useEffect(() => {
-    fetch("https://randomuser.me/api/?results=24")
+    fetch("https://randomuser.me/api/?results=78")
       .then(res => res.json())
-      .then(data =>setUsers(data.results))  
+      .then(data => setUsers(data.results))
   }, [])
   return (
     <div className="App">
-         <Header></Header>
-{
-  users.map(user=> <User user={user} key={user.login.uuid}></User>)
-}
- 
-
- 
-
-   
+      <Header updateFriend={updateFriend}></Header>
+      {
+        users.map(user => <User user={user} key={user.login.uuid} addFriend={addFriend} ></User>)
+      }
     </div>
   );
 }
